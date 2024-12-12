@@ -1,7 +1,7 @@
 // La apikey utilizzata per l'autorizzaione
 const apiKey = "wVihUJknuZdtm58zrcmyfqdE8RtnRMO728eM4QhV42phYMh15zaIKiv0";
 
-const URL = "https://api.pexels.com/v1/search?query=[your-query]"
+const URL = "https://api.pexels.com/v1/search?query="
 
 const btnPrimary = document.querySelector("btnPrimary");
 const  btnSecondary = document.querySelector ("btnSecondary");
@@ -14,5 +14,10 @@ const handlePexelsApi = (query) => {
       headers: {
         Authorization: apiKey
       }
+    })
+    .then((resp) => {
+        if (resp.ok) {
+          return resp.json();
+        }
     })
 }
